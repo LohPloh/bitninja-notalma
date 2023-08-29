@@ -108,11 +108,11 @@ globals:
 
 onAfterStart: 
     updateLicenses: renew
+    - cmd [group]: service bitninja stop  && service bitninja start
+      user: root
 
 onBeforeStop: 
     - deleteLicenses: terminate
-    - cmd [group]: service bitninja stop  && service bitninja start
-      user: root
 
 onBeforeClone:
   cmd [group]: test /etc/bitninja  && echo 'clone' > ${globals.action} || exit 0
