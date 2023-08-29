@@ -107,7 +107,7 @@ globals:
   bitninja_label: BitNinja Service
 
 onAfterStart: 
-    updateLicenses: renew
+    - updateLicenses: renew
     - cmd [group]: service bitninja stop  && service bitninja start
       user: root
 
