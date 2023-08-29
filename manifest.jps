@@ -176,6 +176,11 @@ onUninstall: uninstallBitninja
 
 onInstall: setupBitninja
 
+onAfterStart: 
+  cmd [group]: service bitninja stop  && service bitninja start
+  user: root
+
+
 actions:
   setupBitninja:
     - if (${targetNodes.first.flexibleCloudlets} < 4):
